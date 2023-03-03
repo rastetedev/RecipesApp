@@ -3,16 +3,16 @@
 
     <item
         android:title="@string/recipes_fragment_label"
-        android:id="@+id/RecipesFragment"
+        android:id="@+id/recipesFragment"
         android:icon="@drawable/ic_book" />
 
     <item
         android:title="@string/favorites_fragment_label"
-        android:id="@+id/FavoritesFragment"
-        android:icon="@drawable/ic_heart" />
+        android:id="@+id/favoritesFragment"
+        android:icon="@drawable/ic_star" />
 
     <item
         android:title="@string/settings_fragment_label"
-        android:id="@+id/SettingsFragment"
+        android:id="@+id/settingsFragment"
         android:icon="@drawable/ic_settings" />
 </menu>

@@ -11,6 +11,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import com.rastete.recipesapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -30,7 +31,15 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_main) as NavHostFragment
         navController = navHostFragment.navController
-        appBarConfiguration = AppBarConfiguration(navController.graph)
+        appBarConfiguration =
+            AppBarConfiguration(
+                setOf(
+                    R.id.recipesFragment,
+                    R.id.favoritesFragment,
+                    R.id.settingsFragment
+                )
+            )
+        binding.contentMain.bottomNavigation.setupWithNavController(navController)
         setupActionBarWithNavController(navController, appBarConfiguration)
     }
 

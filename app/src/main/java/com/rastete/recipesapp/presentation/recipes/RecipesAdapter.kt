@@ -43,15 +43,16 @@ class RecipeHolder(private val binding: ItemRecipeBinding) : ViewHolder(binding.
             root.setOnClickListener {
                 onClickItem(recipe)
             }
-            ivRecipeImageRecipeI.load(recipe.imageUrl) {
+            ivRecipeImageRecipeI.load(recipe.image) {
                 crossfade(600)
+                placeholder(R.drawable.ic_image_placeholder)
+                error(R.drawable.ic_image_placeholder)
             }
             tvTitleRecipeRecipeI.text = recipe.title
-            tvDescriptionRecipeRecipeI.text = Html.fromHtml(recipe.description, 0)
-            tvRatingRecipeI.text = recipe.rating.toString()
-            tvTimerRecipeItem.text = recipe.timer.toString()
-            tvTimerRecipeItem.text = recipe.timer.toString()
-            if (!recipe.isVegan) {
+            tvDescriptionRecipeRecipeI.text = Html.fromHtml(recipe.summary, 0)
+            tvRatingRecipeI.text = recipe.aggregateLikes.toString()
+            tvTimerRecipeItem.text = recipe.readyInMinutes.toString()
+            if (!recipe.vegan) {
                 tvIsVegaRecipeI.alpha = 0.2f
                 ivIsVeganRecipeI.alpha = 0.2f
                 tvIsVegaRecipeI.text = binding.root.context.getString(R.string.not_vegan)

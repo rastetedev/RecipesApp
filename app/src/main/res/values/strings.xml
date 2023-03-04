@@ -21,5 +21,6 @@
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="vegan">Vegan</string>
     <string name="not_vegan">Not vegan</string>
+    <string name="no_data">No data</string>
 
 </resources>

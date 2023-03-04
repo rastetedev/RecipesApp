@@ -18,8 +18,8 @@
 - Data Store Preferences
 - ViewModel
 - Data Binding
-- Shimmer Effect
 - ViewPager2
+- Coil
 
 ## 🫡 Main Features
 - Display List of Recipes (Get from Third party API and save this into Local DB)
@@ -38,6 +38,7 @@
 
 
 ## 🐙 Changes
+- Instead of use GsonConverterFactory, I use Kotlin Serialization
 
 
 ## 🤕 Problem Resolve

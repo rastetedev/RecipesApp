@@ -6,6 +6,6 @@ sealed class Result<T>(
 ) {
 
     class Success<T>(data: T) : Result<T>(data = data)
-    class Error<T>(message: String?) : Result<T>(message = message)
+    class Error<T>(data: T, message: String?) : Result<T>(data = data, message = message)
     class Loading<T> : Result<T>()
 }

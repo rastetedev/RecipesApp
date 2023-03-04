@@ -1,20 +1,20 @@
 package com.rastete.recipesapp.data.local
 
 import androidx.room.TypeConverter
-import com.rastete.recipesapp.domain.Recipe
+import com.rastete.recipesapp.data.remote.ExtendedIngredient
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 
-class RecipeTypeConverter {
+class ExtendedIngredientListTypeConverter {
 
     @TypeConverter
-    fun transformRecipeToString(recipe: Recipe): String {
-        return Json.encodeToString(recipe)
+    fun transformExtendedIngredientListToString(extendedIngredientList: List<ExtendedIngredient>): String {
+        return Json.encodeToString(extendedIngredientList)
     }
 
     @TypeConverter
-    fun transformStringToRecipe(value: String): Recipe {
+    fun transformStringToExtendedIngredientList(value: String): List<ExtendedIngredient> {
         return Json.decodeFromString(value)
     }
 }

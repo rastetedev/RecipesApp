@@ -5,7 +5,7 @@ import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFact
 import com.rastete.recipesapp.data.local.RecipeDatabase
 import com.rastete.recipesapp.data.remote.Client
 import com.rastete.recipesapp.data.remote.Client.Companion.BASE_URL
-import com.rastete.recipesapp.data.remote.RecipeRemoteClientMapper
+import com.rastete.recipesapp.data.RecipeMapper
 import com.rastete.recipesapp.data.repository.RecipeRepository
 import dagger.Module
 import dagger.Provides
@@ -65,8 +65,8 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun providesRecipeRemoteClientMapper(): RecipeRemoteClientMapper {
-        return RecipeRemoteClientMapper()
+    fun providesRecipeRemoteClientMapper(): RecipeMapper {
+        return RecipeMapper()
     }
 
     @Singleton
@@ -74,8 +74,8 @@ object AppModule {
     fun providesRecipeRepository(
         database: RecipeDatabase,
         client: Client,
-        recipeRemoteClientMapper: RecipeRemoteClientMapper
+        recipeMapper: RecipeMapper
     ): RecipeRepository {
-        return RecipeRepository(database.recipeDao(), client, recipeRemoteClientMapper)
+        return RecipeRepository(database.recipeDao(), client, recipeMapper)
     }
 }

@@ -22,9 +22,9 @@ class RecipeDiffUtil(
 
         return oldItem.id == newItem.id &&
                 oldItem.title == newItem.title &&
-                oldItem.description == newItem.description &&
-                oldItem.rating == newItem.rating &&
-                oldItem.timer == newItem.timer &&
-                oldItem.isVegan == newItem.isVegan
+                oldItem.summary == newItem.summary &&
+                oldItem.aggregateLikes == newItem.aggregateLikes &&
+                oldItem.readyInMinutes == newItem.readyInMinutes &&
+                oldItem.vegan == newItem.vegan
     }
 }

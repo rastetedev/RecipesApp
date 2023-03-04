@@ -15,6 +15,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import com.rastete.recipesapp.data.util.Result
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 @HiltViewModel
 class RecipesViewModel @Inject constructor(private val repository: RecipeRepository) : ViewModel() {
@@ -28,15 +30,11 @@ class RecipesViewModel @Inject constructor(private val repository: RecipeReposit
     }
 
     private fun getRecipes() {
-        viewModelScope.launch {
-            _recipesResponse.value = Result.Loading()
-            try {
-                _recipesResponse.value = repository.getRecipes(
-                    buildQueries()
-                )
-            } catch (e: Exception) {
-                _recipesResponse.value = Result.Error(message = e.message)
+        viewModelScope.launch(Dispatchers.IO) {
+            withContext(Dispatchers.Main) {
+                _recipesResponse.value = Result.Loading()
             }
+            _recipesResponse.postValue(repository.getRecipes(buildQueries()))
         }
     }
 }

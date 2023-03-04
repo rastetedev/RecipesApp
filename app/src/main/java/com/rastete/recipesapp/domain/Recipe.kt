@@ -1,4 +1,4 @@
-package com.rastete.recipesapp.data
+package com.rastete.recipesapp.domain
 
 data class Recipe(
     val id: Int,

@@ -2,12 +2,11 @@ package com.rastete.recipesapp.presentation.recipes
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.rastete.recipesapp.R
-import com.rastete.recipesapp.data.Recipe
+import com.rastete.recipesapp.domain.Recipe
 import com.rastete.recipesapp.databinding.ItemRecipeBinding
 import com.rastete.recipesapp.presentation.util.RecipeDiffUtil
 

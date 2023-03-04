@@ -1,7 +1,7 @@
 package com.rastete.recipesapp.presentation.util
 
 import androidx.recyclerview.widget.DiffUtil
-import com.rastete.recipesapp.data.Recipe
+import com.rastete.recipesapp.domain.Recipe
 
 class RecipeDiffUtil(
     private val oldList: List<Recipe>,

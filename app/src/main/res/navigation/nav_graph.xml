@@ -17,13 +17,13 @@
 
     <fragment
         android:id="@+id/favoritesFragment"
-        android:name="com.rastete.recipesapp.FavoritesFragment"
+        android:name="com.rastete.recipesapp.presentation.favorites.FavoritesFragment"
         android:label="@string/favorites_fragment_label"
         tools:layout="@layout/fragment_favorites" />
 
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.rastete.recipesapp.SettingsFragment"
+        android:name="com.rastete.recipesapp.presentation.settings.SettingsFragment"
         android:label="@string/settings_fragment_label" />
 
 

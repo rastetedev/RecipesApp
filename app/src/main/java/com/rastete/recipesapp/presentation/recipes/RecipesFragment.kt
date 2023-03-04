@@ -5,9 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.rastete.recipesapp.data.Recipe
+import com.rastete.recipesapp.domain.Recipe
 import com.rastete.recipesapp.databinding.FragmentRecipesBinding
 import com.rastete.recipesapp.presentation.util.MarginItemDecoration
 

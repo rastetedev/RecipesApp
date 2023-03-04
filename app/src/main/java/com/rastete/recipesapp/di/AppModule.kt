@@ -5,6 +5,7 @@ import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFact
 import com.rastete.recipesapp.data.local.RecipeDatabase
 import com.rastete.recipesapp.data.remote.Client
 import com.rastete.recipesapp.data.remote.Client.Companion.BASE_URL
+import com.rastete.recipesapp.data.remote.RecipeRemoteClientMapper
 import com.rastete.recipesapp.data.repository.RecipeRepository
 import dagger.Module
 import dagger.Provides
@@ -15,6 +16,7 @@ import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
@@ -35,6 +37,7 @@ object AppModule {
         return OkHttpClient.Builder().apply {
             readTimeout(15, TimeUnit.SECONDS)
             writeTimeout(15, TimeUnit.SECONDS)
+            addInterceptor(HttpLoggingInterceptor().apply { setLevel(HttpLoggingInterceptor.Level.BODY) })
         }.build()
     }
 
@@ -43,11 +46,14 @@ object AppModule {
     @Provides
     fun providesRetrofit(okHttpClient: OkHttpClient): Retrofit {
         val contentType = "application/json".toMediaType()
+        val json = Json {
+            ignoreUnknownKeys = true
+        }
 
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(okHttpClient)
-            .addConverterFactory(Json.asConverterFactory(contentType))
+            .addConverterFactory(json.asConverterFactory(contentType))
             .build()
     }
 
@@ -59,7 +65,17 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun providesRecipeRepository(database: RecipeDatabase, client: Client): RecipeRepository {
-        return RecipeRepository(database.recipeDao(), client)
+    fun providesRecipeRemoteClientMapper(): RecipeRemoteClientMapper {
+        return RecipeRemoteClientMapper()
+    }
+
+    @Singleton
+    @Provides
+    fun providesRecipeRepository(
+        database: RecipeDatabase,
+        client: Client,
+        recipeRemoteClientMapper: RecipeRemoteClientMapper
+    ): RecipeRepository {
+        return RecipeRepository(database.recipeDao(), client, recipeRemoteClientMapper)
     }
 }

@@ -1,10 +1,12 @@
 package com.rastete.recipesapp.presentation.recipes
 
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import coil.load
 import com.rastete.recipesapp.R
 import com.rastete.recipesapp.domain.Recipe
 import com.rastete.recipesapp.databinding.ItemRecipeBinding
@@ -41,8 +43,11 @@ class RecipeHolder(private val binding: ItemRecipeBinding) : ViewHolder(binding.
             root.setOnClickListener {
                 onClickItem(recipe)
             }
+            ivRecipeImageRecipeI.load(recipe.imageUrl) {
+                crossfade(600)
+            }
             tvTitleRecipeRecipeI.text = recipe.title
-            tvDescriptionRecipeRecipeI.text = recipe.description
+            tvDescriptionRecipeRecipeI.text = Html.fromHtml(recipe.description, 0)
             tvRatingRecipeI.text = recipe.rating.toString()
             tvTimerRecipeItem.text = recipe.timer.toString()
             tvTimerRecipeItem.text = recipe.timer.toString()

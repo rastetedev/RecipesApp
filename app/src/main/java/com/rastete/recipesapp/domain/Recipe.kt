@@ -1,5 +1,6 @@
 package com.rastete.recipesapp.domain
 
+@kotlinx.serialization.Serializable
 data class Recipe(
     val id: Int,
     val title: String,

@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.rastete.recipesapp.R
 import com.rastete.recipesapp.databinding.FragmentRecipesBinding
 import com.rastete.recipesapp.presentation.util.MarginItemDecoration
 import dagger.hilt.android.AndroidEntryPoint
@@ -40,8 +42,15 @@ class RecipesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupEvents()
         setupAdapter()
         setupObservers()
+    }
+
+    private fun setupEvents() {
+        binding.fabOpenFilterRecipesF.setOnClickListener {
+            findNavController().navigate(R.id.action_recipesFragment_to_filtersBottomSheetFragment)
+        }
     }
 
     private fun setupObservers() {
@@ -49,12 +58,18 @@ class RecipesFragment : Fragment() {
             when (result) {
                 is Result.Loading -> {
                     binding.pbLoadingRecipesF.visibility = View.VISIBLE
+                    binding.llEmptyDataRecipesF.visibility = View.GONE
+                    binding.rvRecipesRecipesF.visibility = View.INVISIBLE
                 }
                 is Result.Error,
                 is Result.Success -> {
                     binding.pbLoadingRecipesF.visibility = View.GONE
                     result.data?.let {
-                        if (it.isNotEmpty()) recipesAdapter.setList(it)
+                        if (it.isNotEmpty()) {
+                            recipesAdapter.setList(it)
+                            binding.llEmptyDataRecipesF.visibility = View.GONE
+                            binding.rvRecipesRecipesF.visibility = View.VISIBLE
+                        }
                         else binding.llEmptyDataRecipesF.visibility = View.VISIBLE
                     }
                     if (result is Result.Error) {

@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_RecipesFragment_to_FavoritesFragment"
             app:destination="@id/favoritesFragment" />
+        <action
+            android:id="@+id/action_recipesFragment_to_filtersBottomSheetFragment"
+            app:destination="@id/filtersBottomSheetFragment" />
     </fragment>
 
     <fragment
@@ -25,6 +28,12 @@
         android:id="@+id/settingsFragment"
         android:name="com.rastete.recipesapp.presentation.settings.SettingsFragment"
         android:label="@string/settings_fragment_label" />
+
+    <dialog
+        android:id="@+id/filtersBottomSheetFragment"
+        android:name="com.rastete.recipesapp.presentation.recipes.FiltersBottomSheetFragment"
+        android:label="fragment_filters_bottom_sheet"
+        tools:layout="@layout/fragment_filters_bottom_sheet" />
 
 
 </navigation>

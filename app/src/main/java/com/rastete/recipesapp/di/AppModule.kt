@@ -2,10 +2,11 @@ package com.rastete.recipesapp.di
 
 import android.content.Context
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
-import com.rastete.recipesapp.data.local.RecipeDatabase
+import com.rastete.recipesapp.data.local.database.RecipeDatabase
 import com.rastete.recipesapp.data.remote.Client
 import com.rastete.recipesapp.data.remote.Client.Companion.BASE_URL
 import com.rastete.recipesapp.data.RecipeMapper
+import com.rastete.recipesapp.data.local.file.FiltersDataStoreRepository
 import com.rastete.recipesapp.data.repository.RecipeRepository
 import dagger.Module
 import dagger.Provides
@@ -67,6 +68,12 @@ object AppModule {
     @Provides
     fun providesRecipeRemoteClientMapper(): RecipeMapper {
         return RecipeMapper()
+    }
+
+    @Singleton
+    @Provides
+    fun providesFiltersDataStoreRepository(@ApplicationContext context: Context): FiltersDataStoreRepository {
+        return FiltersDataStoreRepository(context)
     }
 
     @Singleton

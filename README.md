@@ -24,22 +24,31 @@
 ## 🫡 Main Features
 - Display List of Recipes (Get from Third party API and save this into Local DB)
 - Save Favorites Recipes into Local DB
-- Search / Filter Recipes
+- Search / Filter Recipes => Keep filters selected in Data Store
 - 
 
 ## 🔥 Main Topics
-- Use Local & Remote Data sources
+- Implement Offline Cache strategy. 
 - Dark & Light Theme with XML 
 - Motion Layout
 - Create Contextual Action Menu
 - Show Modal Bottom Sheet
 
 ## 🤔 Also learning about...
-
+- Configure Toolbar and Navigation sync
+- Use @Volatile and synchronized to create our Local DB Instance 
+  - @Volatile => Make our variable immediately available in another threads
+  - synchronized() => Lock the process to another threads until it finishes
+  - We use both to ensure that our Database instance will be created only once.
+- Create custom Type Converter in Room
+- Use DiffUtil to improve performance in our recycler view.
+- Use FragmentContainerView instead of fragment tag in out Navigation Component.
+- Use Coil to display placeholder and error images
 
 ## 🐙 Changes
 - Instead of use GsonConverterFactory, I use Kotlin Serialization
-
+- Instead of make cache strategy in viewModel, I made it in repository following Single Source of 
+  truth principle
 
 ## 🤕 Problem Resolve
 

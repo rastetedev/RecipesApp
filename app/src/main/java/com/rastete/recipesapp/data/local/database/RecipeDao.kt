@@ -1,4 +1,4 @@
-package com.rastete.recipesapp.data.local
+package com.rastete.recipesapp.data.local.database
 
 import androidx.room.Dao
 import androidx.room.Insert

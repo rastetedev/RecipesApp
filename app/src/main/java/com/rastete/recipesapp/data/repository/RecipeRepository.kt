@@ -1,6 +1,6 @@
 package com.rastete.recipesapp.data.repository
 
-import com.rastete.recipesapp.data.local.RecipeDao
+import com.rastete.recipesapp.data.local.database.RecipeDao
 import com.rastete.recipesapp.data.remote.Client
 import com.rastete.recipesapp.data.RecipeMapper
 import com.rastete.recipesapp.data.remote.Recipes

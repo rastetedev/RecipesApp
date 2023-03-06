@@ -1,6 +1,6 @@
 package com.rastete.recipesapp.data
 
-import com.rastete.recipesapp.data.local.RecipeEntity
+import com.rastete.recipesapp.data.local.database.RecipeEntity
 import com.rastete.recipesapp.data.remote.Recipes
 import com.rastete.recipesapp.domain.Recipe
 

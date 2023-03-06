@@ -1,4 +1,4 @@
-package com.rastete.recipesapp.data.local
+package com.rastete.recipesapp.data.local.database
 
 import androidx.room.TypeConverter
 import com.rastete.recipesapp.data.remote.ExtendedIngredient

@@ -8,6 +8,8 @@ import com.rastete.recipesapp.data.remote.Client.Companion.BASE_URL
 import com.rastete.recipesapp.data.RecipeMapper
 import com.rastete.recipesapp.data.local.file.FiltersDataStoreRepository
 import com.rastete.recipesapp.data.repository.RecipeRepository
+import com.rastete.recipesapp.presentation.util.ConnectivityObserver
+import com.rastete.recipesapp.presentation.util.NetworkConnectivityObserver
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -84,5 +86,11 @@ object AppModule {
         recipeMapper: RecipeMapper
     ): RecipeRepository {
         return RecipeRepository(database.recipeDao(), client, recipeMapper)
+    }
+
+    @Singleton
+    @Provides
+    fun providesNetworkObserver(@ApplicationContext context: Context): ConnectivityObserver {
+        return NetworkConnectivityObserver(context)
     }
 }

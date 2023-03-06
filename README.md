@@ -17,7 +17,6 @@
 - Flow
 - Data Store Preferences
 - ViewModel
-- Data Binding
 - ViewPager2
 - Coil
 
@@ -44,6 +43,7 @@
 - Use DiffUtil to improve performance in our recycler view.
 - Use FragmentContainerView instead of fragment tag in out Navigation Component.
 - Use Coil to display placeholder and error images
+- Internet Connection Observer
 
 ## 🐙 Changes
 - Instead of use GsonConverterFactory, I use Kotlin Serialization
@@ -54,3 +54,4 @@
 
 
 ## 💡 Ideas
+- Make Filter available even when is offline, with data cached.

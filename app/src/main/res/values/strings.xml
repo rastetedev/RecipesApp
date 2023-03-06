@@ -47,5 +47,6 @@
     <string name="paleo">Paleo</string>
     <string name="primal">Primal</string>
     <string name="whole30">Whole 30</string>
+    <string name="no_internet">⚠️ No internet connection. Recipes could be outdated.</string>
 
 </resources>

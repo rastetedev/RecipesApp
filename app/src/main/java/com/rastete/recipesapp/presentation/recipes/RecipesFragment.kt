@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rastete.recipesapp.R
@@ -14,9 +15,16 @@ import com.rastete.recipesapp.databinding.FragmentRecipesBinding
 import com.rastete.recipesapp.presentation.util.MarginItemDecoration
 import dagger.hilt.android.AndroidEntryPoint
 import com.rastete.recipesapp.data.util.Result
+import com.rastete.recipesapp.presentation.util.ConnectivityObserver
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class RecipesFragment : Fragment() {
+
+    @Inject
+    lateinit var connectivityObserver: ConnectivityObserver
 
     private var _binding: FragmentRecipesBinding? = null
     private val binding get() = _binding!!
@@ -54,6 +62,22 @@ class RecipesFragment : Fragment() {
     }
 
     private fun setupObservers() {
+
+        lifecycleScope.launch {
+            connectivityObserver.observe().collectLatest {
+                when (it) {
+                    ConnectivityObserver.NetworkStatus.AVAILABLE -> {
+                        binding.tvAlertMessageRecipesF.visibility = View.GONE
+                        binding.fabOpenFilterRecipesF.isEnabled = true
+                    }
+                    else -> {
+                        binding.tvAlertMessageRecipesF.visibility = View.VISIBLE
+                        binding.fabOpenFilterRecipesF.isEnabled = false
+                    }
+                }
+            }
+        }
+
         recipesViewModel.recipesResponse.observe(viewLifecycleOwner) { result ->
             when (result) {
                 is Result.Loading -> {
@@ -69,8 +93,7 @@ class RecipesFragment : Fragment() {
                             recipesAdapter.setList(it)
                             binding.llEmptyDataRecipesF.visibility = View.GONE
                             binding.rvRecipesRecipesF.visibility = View.VISIBLE
-                        }
-                        else binding.llEmptyDataRecipesF.visibility = View.VISIBLE
+                        } else binding.llEmptyDataRecipesF.visibility = View.VISIBLE
                     }
                     if (result is Result.Error) {
                         Toast.makeText(context, result.message, Toast.LENGTH_SHORT).show()

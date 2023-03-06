@@ -13,6 +13,8 @@ interface Client {
         const val NUMBER_KEY = "number"
         const val FILL_INGREDIENTS_KEY = "fillIngredients"
         const val ADD_RECIPE_INFORMATION_KEY = "addRecipeInformation"
+        const val QUERY_DIET_TYPE_KEY = "diet"
+        const val QUERY_MEAL_TYPE_KEY = "type"
     }
 
     @GET("/recipes/complexSearch/")

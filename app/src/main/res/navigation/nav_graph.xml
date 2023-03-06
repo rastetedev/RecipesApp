@@ -33,7 +33,13 @@
         android:id="@+id/filtersBottomSheetFragment"
         android:name="com.rastete.recipesapp.presentation.recipes.FiltersBottomSheetFragment"
         android:label="fragment_filters_bottom_sheet"
-        tools:layout="@layout/fragment_filters_bottom_sheet" />
+        tools:layout="@layout/fragment_filters_bottom_sheet" >
+        <action
+            android:id="@+id/action_filtersBottomSheetFragment_to_recipesFragment"
+            app:destination="@id/recipesFragment"
+            app:popUpTo="@id/recipesFragment"
+            app:popUpToInclusive="true" />
+    </dialog>
 
 
 </navigation>

@@ -30,6 +30,7 @@ class RecipeRepository @Inject constructor(
                 response.code() == 402 -> Result.Error(fromLocalData, message = "API Key Limited.")
                 response.body() == null -> Result.Error(fromLocalData, message = "No data found")
                 response.isSuccessful -> {
+                    dao.deleteRecipes()
                     dao.insertRecipes(mapper.fromRemoteToLocal(response.body()))
                     val newData = mapper.fromLocalToDomain(dao.getRecipes())
                     Result.Success(newData)

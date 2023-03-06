@@ -1,9 +1,6 @@
 package com.rastete.recipesapp.data.local.database
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 
 @Dao
 interface RecipeDao {
@@ -12,4 +9,7 @@ interface RecipeDao {
 
     @Query("SELECT * FROM RecipeEntity ORDER BY id")
     fun getRecipes(): List<RecipeEntity>
+
+    @Query("DELETE FROM RecipeEntity")
+    fun deleteRecipes()
 }

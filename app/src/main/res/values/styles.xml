@@ -5,4 +5,5 @@
         <item name="checkedIconTint">?attr/colorPrimary</item>
         <item name="android:textColor">@color/chip_text_color</item>
     </style>
+
 </resources>

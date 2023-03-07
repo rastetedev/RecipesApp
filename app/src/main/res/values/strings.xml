@@ -5,6 +5,7 @@
     <string name="recipes_fragment_label">Recipes</string>
     <string name="favorites_fragment_label">Favorites</string>
     <string name="settings_fragment_label">Settings</string>
+    <string name="recipe_detail_fragment_label">Recipe Detail</string>
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
     <string name="sync_header">Sync</string>
@@ -47,6 +48,15 @@
     <string name="paleo">Paleo</string>
     <string name="primal">Primal</string>
     <string name="whole30">Whole 30</string>
+
+    <string name="cheap">Cheap</string>
+    <string name="healthy">Healthy</string>
+    <string name="dairy_free">Dairy Free</string>
+
     <string name="no_internet">⚠️ No internet connection. Recipes could be outdated.</string>
+
+    <string name="overview">Overview</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="instructions">Instructions</string>
 
 </resources>

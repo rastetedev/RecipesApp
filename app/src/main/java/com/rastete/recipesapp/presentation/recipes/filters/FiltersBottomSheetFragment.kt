@@ -1,4 +1,4 @@
-package com.rastete.recipesapp.presentation.recipes
+package com.rastete.recipesapp.presentation.recipes.filters
 
 import android.os.Bundle
 import android.view.LayoutInflater

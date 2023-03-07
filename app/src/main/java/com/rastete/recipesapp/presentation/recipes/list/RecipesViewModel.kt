@@ -1,4 +1,4 @@
-package com.rastete.recipesapp.presentation.recipes
+package com.rastete.recipesapp.presentation.recipes.list
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

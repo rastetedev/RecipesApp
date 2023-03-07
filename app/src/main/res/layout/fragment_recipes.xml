@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.recipes.RecipesFragment">
+    tools:context=".presentation.recipes.list.RecipesFragment">
 
     <TextView
         android:id="@+id/tv_alertMessage_recipesF"

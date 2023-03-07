@@ -24,7 +24,6 @@
 - Display List of Recipes (Get from Third party API and save this into Local DB)
 - Save Favorites Recipes into Local DB
 - Search / Filter Recipes => Keep filters selected in Data Store
-- 
 
 ## 🔥 Main Topics
 - Implement Offline Cache strategy. 
@@ -32,6 +31,7 @@
 - Motion Layout
 - Create Contextual Action Menu
 - Show Modal Bottom Sheet
+- Setup ViewPager 2 and TabLayout
 
 ## 🤔 Also learning about...
 - Configure Toolbar and Navigation sync

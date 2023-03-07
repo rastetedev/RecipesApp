@@ -1,4 +1,4 @@
-package com.rastete.recipesapp.presentation.recipes
+package com.rastete.recipesapp.presentation.recipes.list
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -33,7 +33,8 @@ class RecipesFragment : Fragment() {
 
     private val recipesAdapter by lazy {
         RecipesAdapter {
-
+            val action = RecipesFragmentDirections.actionRecipesFragmentToRecipeDetailFragment(it)
+            findNavController().navigate(action)
         }
     }
 

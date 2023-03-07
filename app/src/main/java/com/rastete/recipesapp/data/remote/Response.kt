@@ -1,5 +1,8 @@
 package com.rastete.recipesapp.data.remote
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
 @kotlinx.serialization.Serializable
 data class Recipes(
     val results: List<Result>
@@ -24,6 +27,7 @@ data class Result(
     val veryHealthy: Boolean,
 )
 
+@Parcelize
 @kotlinx.serialization.Serializable
 data class ExtendedIngredient(
     val amount: Double,
@@ -32,4 +36,4 @@ data class ExtendedIngredient(
     val name: String,
     val original: String,
     val unit: String
-)
+) : Parcelable

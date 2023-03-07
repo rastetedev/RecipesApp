@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.recipes.detail.overview.OverviewRecipeFragment">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_recipe_overviewRecipeF"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
+
+    <View
+        android:id="@+id/v_gradientOverlay_overviewRecipeF"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:background="@drawable/gradient_overlay"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_recipe_overviewRecipeF"
+        app:layout_constraintEnd_toEndOf="@+id/iv_recipe_overviewRecipeF"
+        app:layout_constraintStart_toStartOf="@+id/iv_recipe_overviewRecipeF"
+        app:layout_constraintTop_toTopOf="@+id/iv_recipe_overviewRecipeF"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/tv_time_overviewRecipeF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="12dp"
+        tools:text="100"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_recipe_overviewRecipeF"
+        app:layout_constraintEnd_toEndOf="@+id/v_gradientOverlay_overviewRecipeF" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_timeIcon_overviewRecipeF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_time"
+        app:layout_constraintBottom_toTopOf="@+id/tv_time_overviewRecipeF"
+        app:layout_constraintEnd_toEndOf="@+id/tv_time_overviewRecipeF"
+        app:layout_constraintStart_toStartOf="@+id/tv_time_overviewRecipeF"
+        app:tint="@color/white" />
+
+    <TextView
+        android:id="@+id/tv_likes_overviewRecipeF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        tools:text="100"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_time_overviewRecipeF"
+        app:layout_constraintEnd_toStartOf="@+id/tv_time_overviewRecipeF" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_likes_overviewRecipeF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_heart"
+        app:layout_constraintBottom_toTopOf="@+id/tv_likes_overviewRecipeF"
+        app:layout_constraintEnd_toEndOf="@+id/tv_likes_overviewRecipeF"
+        app:layout_constraintStart_toStartOf="@+id/tv_likes_overviewRecipeF"
+        app:tint="@color/white" />
+
+    <TextView
+        android:id="@+id/tv_title_overviewRecipeF"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="12dp"
+        android:textSize="22sp"
+        android:textColor="@color/darker"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_recipe_overviewRecipeF"
+        tools:text="Title" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_vegetarianCheckIcon_overviewRecipeF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/ic_checkmark"
+        app:layout_constraintStart_toStartOf="@+id/tv_title_overviewRecipeF"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title_overviewRecipeF"
+        app:tint="@color/itemColor" />
+
+    <TextView
+        android:id="@+id/tv_vegetarianCheck_overviewRecipeF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/vegetarian"
+        android:textColor="@color/itemColor"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_vegetarianCheckIcon_overviewRecipeF"
+        app:layout_constraintStart_toEndOf="@+id/iv_vegetarianCheckIcon_overviewRecipeF"
+        app:layout_constraintTop_toTopOf="@+id/iv_vegetarianCheckIcon_overviewRecipeF" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_veganCheckIcon_overviewRecipeF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/ic_checkmark"
+        app:layout_constraintStart_toStartOf="@+id/iv_vegetarianCheckIcon_overviewRecipeF"
+        app:layout_constraintTop_toBottomOf="@+id/iv_vegetarianCheckIcon_overviewRecipeF"
+        app:tint="@color/itemColor" />
+
+    <TextView
+        android:id="@+id/tv_veganCheck_overviewRecipeF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/vegan"
+        android:textColor="@color/itemColor"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_veganCheckIcon_overviewRecipeF"
+        app:layout_constraintStart_toEndOf="@+id/iv_veganCheckIcon_overviewRecipeF"
+        app:layout_constraintTop_toTopOf="@+id/iv_veganCheckIcon_overviewRecipeF" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_glutenFreeCheckIcon_overviewRecipeF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:src="@drawable/ic_checkmark"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_vegetarianCheck_overviewRecipeF"
+        app:layout_constraintStart_toEndOf="@+id/tv_vegetarianCheck_overviewRecipeF"
+        app:layout_constraintTop_toTopOf="@+id/tv_vegetarianCheck_overviewRecipeF"
+        app:tint="@color/itemColor" />
+
+    <TextView
+        android:id="@+id/tv_glutenFreeCheck_overviewRecipeF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/gluten_free"
+        android:textColor="@color/itemColor"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_glutenFreeCheckIcon_overviewRecipeF"
+        app:layout_constraintStart_toEndOf="@+id/iv_glutenFreeCheckIcon_overviewRecipeF"
+        app:layout_constraintTop_toTopOf="@+id/iv_glutenFreeCheckIcon_overviewRecipeF" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_dairyFreeCheckIcon_overviewRecipeF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/ic_checkmark"
+        app:layout_constraintStart_toStartOf="@+id/iv_glutenFreeCheckIcon_overviewRecipeF"
+        app:layout_constraintTop_toBottomOf="@+id/iv_glutenFreeCheckIcon_overviewRecipeF"
+        app:tint="@color/itemColor" />
+
+    <TextView
+        android:id="@+id/tv_dairyFreeCheck_overviewRecipeF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/dairy_free"
+        android:textColor="@color/itemColor"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_dairyFreeCheckIcon_overviewRecipeF"
+        app:layout_constraintStart_toEndOf="@+id/iv_dairyFreeCheckIcon_overviewRecipeF"
+        app:layout_constraintTop_toTopOf="@+id/iv_dairyFreeCheckIcon_overviewRecipeF" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_healthyCheckIcon_overviewRecipeF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:src="@drawable/ic_checkmark"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_glutenFreeCheck_overviewRecipeF"
+        app:layout_constraintStart_toEndOf="@+id/tv_glutenFreeCheck_overviewRecipeF"
+        app:layout_constraintTop_toTopOf="@+id/tv_glutenFreeCheck_overviewRecipeF"
+        app:tint="@color/itemColor" />
+
+    <TextView
+        android:id="@+id/tv_healthyCheck_overviewRecipeF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/healthy"
+        android:textColor="@color/itemColor"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_healthyCheckIcon_overviewRecipeF"
+        app:layout_constraintStart_toEndOf="@+id/iv_healthyCheckIcon_overviewRecipeF"
+        app:layout_constraintTop_toTopOf="@+id/iv_healthyCheckIcon_overviewRecipeF" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_cheapCheckIcon_overviewRecipeF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/ic_checkmark"
+        app:layout_constraintStart_toStartOf="@+id/iv_healthyCheckIcon_overviewRecipeF"
+        app:layout_constraintTop_toBottomOf="@+id/iv_healthyCheckIcon_overviewRecipeF"
+        app:tint="@color/itemColor" />
+
+    <TextView
+        android:id="@+id/tv_cheapCheck_overviewRecipeF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/cheap"
+        android:textColor="@color/itemColor"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_cheapCheckIcon_overviewRecipeF"
+        app:layout_constraintStart_toEndOf="@+id/iv_cheapCheckIcon_overviewRecipeF"
+        app:layout_constraintTop_toTopOf="@+id/iv_cheapCheckIcon_overviewRecipeF" />
+
+    <ScrollView
+        android:id="@+id/scrollV_summary_overviewRecipeF"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_veganCheckIcon_overviewRecipeF">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_summary_overviewRecipeF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                tools:text="TextView" />
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

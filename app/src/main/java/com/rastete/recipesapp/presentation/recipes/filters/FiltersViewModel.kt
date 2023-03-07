@@ -1,4 +1,4 @@
-package com.rastete.recipesapp.presentation.recipes
+package com.rastete.recipesapp.presentation.recipes.filters
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

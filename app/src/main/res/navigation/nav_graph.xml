@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/recipesFragment"
-        android:name="com.rastete.recipesapp.presentation.recipes.RecipesFragment"
+        android:name="com.rastete.recipesapp.presentation.recipes.list.RecipesFragment"
         android:label="@string/recipes_fragment_label"
         tools:layout="@layout/fragment_recipes">
         <action
@@ -16,6 +16,10 @@
         <action
             android:id="@+id/action_recipesFragment_to_filtersBottomSheetFragment"
             app:destination="@id/filtersBottomSheetFragment" />
+        <action
+            android:id="@+id/action_recipesFragment_to_recipeDetailFragment"
+            app:destination="@id/recipeDetailFragment" />
+
     </fragment>
 
     <fragment
@@ -31,15 +35,23 @@
 
     <dialog
         android:id="@+id/filtersBottomSheetFragment"
-        android:name="com.rastete.recipesapp.presentation.recipes.FiltersBottomSheetFragment"
+        android:name="com.rastete.recipesapp.presentation.recipes.filters.FiltersBottomSheetFragment"
         android:label="fragment_filters_bottom_sheet"
-        tools:layout="@layout/fragment_filters_bottom_sheet" >
+        tools:layout="@layout/fragment_filters_bottom_sheet">
         <action
             android:id="@+id/action_filtersBottomSheetFragment_to_recipesFragment"
             app:destination="@id/recipesFragment"
             app:popUpTo="@id/recipesFragment"
             app:popUpToInclusive="true" />
     </dialog>
-
+    <fragment
+        android:id="@+id/recipeDetailFragment"
+        android:name="com.rastete.recipesapp.presentation.recipes.detail.RecipeDetailFragment"
+        android:label="@string/recipe_detail_fragment_label"
+        tools:layout="@layout/fragment_recipe_detail">
+        <argument
+            android:name="recipe"
+            app:argType="com.rastete.recipesapp.domain.Recipe" />
+    </fragment>
 
 </navigation>

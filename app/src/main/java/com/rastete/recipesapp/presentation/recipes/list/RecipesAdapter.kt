@@ -1,6 +1,5 @@
-package com.rastete.recipesapp.presentation.recipes
+package com.rastete.recipesapp.presentation.recipes.list
 
-import android.text.Html
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -10,6 +9,7 @@ import coil.load
 import com.rastete.recipesapp.R
 import com.rastete.recipesapp.domain.Recipe
 import com.rastete.recipesapp.databinding.ItemRecipeBinding
+import com.rastete.recipesapp.presentation.recipes.detail.overview.escapeHtml
 import com.rastete.recipesapp.presentation.util.RecipeDiffUtil
 
 class RecipesAdapter(private val onClickItem: (Recipe) -> Unit) :
@@ -49,7 +49,7 @@ class RecipeHolder(private val binding: ItemRecipeBinding) : ViewHolder(binding.
                 error(R.drawable.ic_image_placeholder)
             }
             tvTitleRecipeRecipeI.text = recipe.title
-            tvDescriptionRecipeRecipeI.text = Html.fromHtml(recipe.summary, 0)
+            tvDescriptionRecipeRecipeI.escapeHtml(recipe.summary)
             tvRatingRecipeI.text = recipe.aggregateLikes.toString()
             tvTimerRecipeItem.text = recipe.readyInMinutes.toString()
             if (!recipe.vegan) {

@@ -12,8 +12,8 @@ import coil.load
 import com.rastete.recipesapp.R
 import com.rastete.recipesapp.databinding.FragmentOverviewRecipeBinding
 import com.rastete.recipesapp.domain.Recipe
-import org.jsoup.Jsoup
-
+import com.rastete.recipesapp.presentation.util.escapeHtml
+import com.rastete.recipesapp.presentation.util.parcelable
 
 class OverviewRecipeFragment : Fragment() {
 
@@ -21,13 +21,14 @@ class OverviewRecipeFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val recipe by lazy {
-        arguments?.getParcelable<Recipe>("recipe")
+        arguments?.parcelable<Recipe>("recipe")
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
         _binding = FragmentOverviewRecipeBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -77,8 +78,3 @@ fun ImageView.setCheckColor(hasCheck: Boolean) {
 
 fun TextView.setCheckColor(hasCheck: Boolean) =
     this.setTextColor(if (hasCheck) context.getColor(R.color.green) else context.getColor(R.color.darkGray))
-
-fun TextView.escapeHtml(text: String) {
-    val plainText = Jsoup.parse(text).text()
-    this.text = plainText
-}

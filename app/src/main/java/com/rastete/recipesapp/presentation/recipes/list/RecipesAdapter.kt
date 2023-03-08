@@ -9,8 +9,8 @@ import coil.load
 import com.rastete.recipesapp.R
 import com.rastete.recipesapp.domain.Recipe
 import com.rastete.recipesapp.databinding.ItemRecipeBinding
-import com.rastete.recipesapp.presentation.recipes.detail.overview.escapeHtml
 import com.rastete.recipesapp.presentation.util.RecipeDiffUtil
+import com.rastete.recipesapp.presentation.util.escapeHtml
 
 class RecipesAdapter(private val onClickItem: (Recipe) -> Unit) :
     RecyclerView.Adapter<RecipeHolder>() {

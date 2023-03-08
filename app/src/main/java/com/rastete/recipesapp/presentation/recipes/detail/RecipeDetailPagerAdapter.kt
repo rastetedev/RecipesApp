@@ -16,17 +16,21 @@ class RecipeDetailPagerAdapter(
     override fun getItemCount(): Int = 3
 
     override fun createFragment(position: Int): Fragment {
+        val bundle = Bundle().apply {
+            putParcelable("recipe", recipe)
+        }
         return when (position) {
             0 -> {
-                val bundle = Bundle().apply {
-                    putParcelable("recipe", recipe)
-                }
                 return OverviewRecipeFragment().apply {
                     arguments = bundle
                 }
             }
-            1 -> IngredientsRecipeFragment()
-            2 -> InstructionsRecipeFragment()
+            1 -> IngredientsRecipeFragment().apply {
+                arguments = bundle
+            }
+            2 -> InstructionsRecipeFragment().apply {
+                arguments = bundle
+            }
             else -> throw IllegalStateException("Position $position is invalid for this viewpager")
         }
     }

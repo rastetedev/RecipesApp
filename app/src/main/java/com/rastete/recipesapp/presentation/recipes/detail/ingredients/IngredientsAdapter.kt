@@ -46,11 +46,13 @@ class IngredientHolder(private val binding: ItemIngredientBinding) : ViewHolder(
                 placeholder(R.drawable.ic_image_placeholder)
                 error(R.drawable.ic_image_placeholder)
             }
-            tvIngredientNameIngredientI.text = ingredient.name
+            tvIngredientNameIngredientI.text = ingredient.name.replaceFirstChar { it.uppercase() }
             tvIngredientAmountIngredientI.text = ingredient.amount.toString()
-            tvIngredientConsistencyIngredientI.text = ingredient.consistency
+            tvIngredientConsistencyIngredientI.text =
+                ingredient.consistency.lowercase().replaceFirstChar { it.uppercase() }
             tvIngredientUnitIngredientI.text = ingredient.unit
-            tvIngredientOriginalIngredientI.text = ingredient.original
+            tvIngredientOriginalIngredientI.text =
+                ingredient.original
         }
     }
 }
